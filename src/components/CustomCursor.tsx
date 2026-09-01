@@ -1,73 +1,79 @@
 import React, { useEffect, useRef } from 'react';
 
+/**
+ * Luxury pointer for the hero: a solid gold dot that tracks the cursor exactly,
+ * trailed by a thin gold ring that eases toward it. Desktop, non-touch only.
+ */
 export default function CustomCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Only active on desktop (non-touch, >= 1024px)
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (isTouch || window.innerWidth < 1024) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     document.body.classList.add('custom-cursor-active');
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-      const vh = window.innerHeight;
-      const heroHeight = 5 * vh;
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    let raf = 0;
 
-      if (cursorRef.current) {
-        if (scrollY < heroHeight) {
-          cursorRef.current.style.opacity = '1';
-          cursorRef.current.style.left = `${e.clientX}px`;
-          cursorRef.current.style.top = `${e.clientY}px`;
-        } else {
-          cursorRef.current.style.opacity = '0';
-        }
-      }
+    const onMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    const render = () => {
+      // Ring eases toward the pointer; the dot is exact. The lag is what reads
+      // as "weight" rather than a plain follower.
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
+
+      const inHero = window.scrollY < 5 * window.innerHeight;
+      const opacity = inHero ? '1' : '0';
+
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+        dotRef.current.style.opacity = opacity;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+        ringRef.current.style.opacity = opacity;
+      }
+      raf = requestAnimationFrame(render);
+    };
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    raf = requestAnimationFrame(render);
 
     return () => {
       document.body.classList.remove('custom-cursor-active');
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', onMove);
+      cancelAnimationFrame(raf);
     };
   }, []);
 
   return (
-    <div
-      ref={cursorRef}
-      id="custom-cursor"
-      className="hidden lg:block fixed pointer-events-none z-50 mix-blend-exclusion"
-      style={{
-        left: '-100px',
-        top: '-100px',
-        transform: 'translate(-50%, -50%)',
-      }}
-    >
-      <svg
-        width="48"
-        height="48"
-        viewBox="0 0 48 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          cx="24"
-          cy="24"
-          r="22.75"
-          stroke="white"
-          strokeWidth="2.5"
-        />
-        {/* Japanese/decorative glyph inside */}
-        <path
-          d="M16 16.5H32M24 16.5V31.5M19 22.5H29M18 31.5H30M20 27L16 32M28 27L32 32"
-          stroke="white"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
+    <>
+      {/* Outer ring (trails) */}
+      <div
+        ref={ringRef}
+        id="custom-cursor"
+        aria-hidden="true"
+        className="hidden lg:block fixed left-0 top-0 z-[60] pointer-events-none w-9 h-9 rounded-full border border-[#d9b358]/70 opacity-0 transition-opacity duration-300"
+        style={{ boxShadow: '0 0 12px rgba(217,179,88,0.25), inset 0 0 8px rgba(217,179,88,0.12)' }}
+      />
+      {/* Inner dot (exact) */}
+      <div
+        ref={dotRef}
+        id="custom-cursor-dot"
+        aria-hidden="true"
+        className="hidden lg:block fixed left-0 top-0 z-[60] pointer-events-none w-[6px] h-[6px] rounded-full bg-[#d9b358] opacity-0 transition-opacity duration-300"
+        style={{ boxShadow: '0 0 10px rgba(217,179,88,0.9)' }}
+      />
+    </>
   );
 }

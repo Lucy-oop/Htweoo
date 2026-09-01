@@ -130,37 +130,50 @@ export default function HistoryPage() {
   return (
     <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans pt-[var(--global-nav-h)]">
       {/* HERO */}
-      <header className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden border-b border-[#534343]/60">
+      <header className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden border-b border-[#534343]/60">
+        {/* Full-bleed imagery */}
         <div className="absolute inset-0">
           <img
             alt="Ceremonial marionette stage"
             onError={handleImageError}
             data-fallback={CARD_FALLBACKS.stage}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center scale-105"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnK-RqaW0e5JCXTKxKy_d1VOAZQ3_M16wPykTXxsfoj6Ly_VqrpJaDqhv4pdrscTwz8gLV8TIAjMvvVke8mY80auGpO0yNmYNWLepXjQlfYoWctO41f6F4AmNMdqLmNzER7mKmR5QxYpZvzZ2ck1VN5KwKUVDzIfgHXz3t_RLMX2hqFtDOs6ENXKbPvBa0KIwr8-ywHLCe2fIFIGt8VxMANF3uOedqTI-mIctk6NVi1kAUhyeBP4gLVIqF1SLNjASWeEqC1diSJmLjGw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#181212]/70 via-[#181212]/55 to-[#181212]" />
+          {/* Refined dark-to-transparent scrim: readable centre, clean hand-off
+              into the page background at the bottom edge. */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#181212]/90 via-[#181212]/55 to-[#181212]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(24,18,18,0.75)_100%)]" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
-          <p className="font-sans text-[12px] uppercase tracking-widest font-bold text-[#d9b358] mb-6">
-            Global Recognition &amp; Patronage
-          </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-amber-50 leading-[1.15] mb-8">
+          {/* Gold rule + eyebrow, matching the lockup used site-wide */}
+          <div className="inline-flex items-center justify-center gap-3 mb-6">
+            <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
+            <span className="font-sans text-[12px] uppercase tracking-widest font-semibold text-[#d9b358]">
+              Global Recognition &amp; Patronage
+            </span>
+            <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
+          </div>
+
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-amber-50 leading-[1.15] tracking-wide max-w-4xl mx-auto drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]">
             Preservation Honors &amp; Official Certificates
           </h1>
+
+          <div className="w-24 h-px mx-auto my-8 bg-gradient-to-r from-transparent via-[#d9b358] to-transparent" />
+
           <p className="font-sans text-[16px] text-[#c4c4c4] max-w-[720px] mx-auto mb-12 leading-relaxed">
             Documenting twenty years of global recognition, international puppet arts revival
             prizes, and official state patronage.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {['View International Awards', 'State Certificates & Patronage', 'UNIMA Preservation Honors'].map(
               (label) => (
                 <a
                   key={label}
                   href="#evolution"
-                  className="rounded-full px-6 py-2.5 bg-[#2c2525]/60 border border-[#d9b358]/40 font-sans text-[14px] font-medium text-[#ece0e0] hover:bg-[#d9b358]/15 hover:border-[#d9b358] hover:text-[#d9b358] transition-all duration-300"
+                  className="rounded-full px-6 py-2.5 bg-[#2c2525]/70 backdrop-blur-sm border border-[#d9b358]/40 font-sans text-[13px] font-semibold text-[#ece0e0] hover:bg-[#d9b358]/20 hover:border-[#d9b358] hover:text-[#d9b358] hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {label}
                 </a>

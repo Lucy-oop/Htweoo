@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans pt-[var(--global-nav-h)]">
       {/* HERO */}
-      <header className="relative w-full min-h-[70vh] flex items-center overflow-hidden border-b border-[#534343]/60">
+      <header className="relative w-full min-h-[75vh] flex items-center overflow-hidden border-b border-[#534343]/60">
         <div className="absolute inset-0">
           <img
             alt="Master puppeteer at work"

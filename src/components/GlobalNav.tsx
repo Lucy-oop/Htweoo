@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-interface GlobalNavProps {
-  onOpenBooking?: (eventTitle?: string) => void;
-}
-
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `nav-link hover:text-[#d9b358] transition-colors duration-300${isActive ? ' active' : ''}`;
 
-export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
+export default function GlobalNav() {
   const navRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,11 +34,7 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleTickets = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setMenuOpen(false);
-    onOpenBooking?.('Htwe Oo Myanmar Marionette Show');
-  };
+  const handleTickets = () => setMenuOpen(false);
 
   return (
     <>
@@ -84,13 +76,13 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
         {/* Right Menu (Desktop) */}
         <div className="hidden lg:flex flex-1 justify-start items-center gap-10 pl-12 font-sans text-[13px] tracking-[0.15em] font-medium text-[#F5F5F7]">
           <NavLink to="/history" className={navLinkClass}>HISTORY</NavLink>
-          <a
-            href="#"
+          <Link
+            to="/events"
             onClick={handleTickets}
             className="bg-[#107C41] hover:bg-[#14954F] text-white px-6 py-2.5 rounded-full text-[12px] font-bold tracking-widest transition-all duration-300 shadow-[0_4px_14px_rgba(16,124,65,0.4)] hover:shadow-[0_6px_20px_rgba(16,124,65,0.6)] hover:-translate-y-0.5"
           >
             EVENTS &amp; TICKETS
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}

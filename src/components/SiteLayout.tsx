@@ -43,7 +43,7 @@ export default function SiteLayout() {
   return (
     <BookingContext.Provider value={{ openBooking }}>
       <div className="relative w-full bg-[#181212] text-[#ece0e0]">
-        <GlobalNav onOpenBooking={openBooking} />
+        <GlobalNav />
 
         <Outlet />
 
