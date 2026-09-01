@@ -5,6 +5,10 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages serves this repo from /Htweoo/, so bundled JS/CSS/asset
+    // URLs must be rewritten to that subpath. Dev and other hosts stay at root.
+    base: process.env.GITHUB_PAGES ? '/Htweoo/' : '/',
+
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

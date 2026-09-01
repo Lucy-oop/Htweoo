@@ -7,8 +7,9 @@ import HistoryPage from './pages/HistoryPage';
 import EventsPage from './pages/EventsPage';
 
 export default function App() {
+  // basename derives from the Vite base: "/" in dev, "/Htweoo/" on GitHub Pages.
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route element={<SiteLayout />}>
           <Route path="/" element={<HomePage />} />

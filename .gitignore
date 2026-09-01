@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Standardised on npm; keep a stray bun lockfile out of the repo
+bun.lock
+bun.lockb
+yarn.lock
+pnpm-lock.yaml

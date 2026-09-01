@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useBooking } from '../components/SiteLayout';
-import { handleImageError, CARD_FALLBACKS } from '../lib/images';
+import { handleImageError, CARD_FALLBACKS, asset } from '../lib/images';
 import LivingLegacy from '../sections/LivingLegacy';
 import VideoShowcase from '../sections/VideoShowcase';
 import MomentsGallery from '../sections/MomentsGallery';
@@ -137,7 +137,7 @@ export default function HistoryPage() {
             alt="Htwe Oo Myanmar heritage performance"
             onError={handleImageError}
             className="w-full h-full object-cover object-center"
-            src="/images/historybg.png"
+            src={asset("images/historybg.png")}
           />
           {/* Refined dark-to-transparent scrim: readable centre, clean hand-off
               into the page background at the bottom edge. */}

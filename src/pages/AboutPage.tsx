@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useBooking } from '../components/SiteLayout';
-import { handleImageError, CARD_FALLBACKS } from '../lib/images';
+import { handleImageError, CARD_FALLBACKS, asset } from '../lib/images';
 import AwardsHighlight from '../sections/AwardsHighlight';
 import VideoShowcase from '../sections/VideoShowcase';
 import MomentsGallery from '../sections/MomentsGallery';
@@ -24,7 +24,7 @@ export default function AboutPage() {
             alt="Htwe Oo Myanmar marionette troupe"
             onError={handleImageError}
             className="w-full h-full object-cover"
-            src="/images/aboutusbg.JPG"
+            src={asset("images/aboutusbg.JPG")}
           />
         </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Theater, ArrowRight } from 'lucide-react';
 import { useBooking } from '../components/SiteLayout';
-import { handleImageError, CARD_FALLBACKS } from '../lib/images';
+import { handleImageError, CARD_FALLBACKS, asset } from '../lib/images';
 import FestivalTour from '../sections/FestivalTour';
 
 const RESIDENCY = [
@@ -47,7 +47,7 @@ export default function EventsPage() {
             alt="Htwe Oo Myanmar marionette performance"
             onError={handleImageError}
             className="w-full h-full object-cover"
-            src="/images/ticketbg.png"
+            src={asset("images/ticketbg.png")}
           />
         </div>
 

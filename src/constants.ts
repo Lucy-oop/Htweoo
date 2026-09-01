@@ -1,3 +1,5 @@
+import { asset } from './lib/images';
+
 export const VIDEO_ASSETS = {
   left: 'https://gcfhxssieicuekikmbpf.supabase.co/storage/v1/object/public/Video(htweOo)/Marionette_turning_head_right_202608311032.mp4',
   right: 'https://gcfhxssieicuekikmbpf.supabase.co/storage/v1/object/public/Video(htweOo)/Marionette_puppet_turns_head_202608311031.mp4',
@@ -19,8 +21,8 @@ const GALLERY_FILENAMES: string[] = [
   'ChatGPT Image Aug 31, 2026, 11_47_33 AM.png',
 ];
 
-export const GALLERY_IMAGES: string[] = GALLERY_FILENAMES.map(
-  (name) => encodeURI(`/images/${name}`)
+export const GALLERY_IMAGES: string[] = GALLERY_FILENAMES.map((name) =>
+  encodeURI(asset(`images/${name}`))
 );
 
 export const SYMBOLS = ['8', '$', '^^', '%', '/'];

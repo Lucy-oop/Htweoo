@@ -1,6 +1,13 @@
 import type React from 'react';
 
 /**
+ * Resolve a public/ asset against the Vite base. A bare "/images/x.png" points
+ * at the domain root, which 404s when the site is served from a subpath.
+ */
+export const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
+/**
  * Last-resort image used when a remote asset 404s/403s. Several of the original
  * lh3.googleusercontent.com links have already expired, so every <img> that
  * points at a remote host should route its onError through here.
