@@ -25,11 +25,11 @@ export default function HeroTitle() {
         {/* Flanked on one line from sm up; on narrow screens the rule stacks above
             the label so the two-line wrap stays centred instead of straddling it. */}
         <div className="mt-5 flex flex-col items-center gap-2.5 sm:flex-row sm:gap-3">
-          <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#D49E24]/60" />
-          <span className="min-w-0 font-sans text-[9px] sm:text-[12px] uppercase tracking-[0.14em] sm:tracking-[0.25em] font-semibold text-[#D49E24] drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)]">
+          <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
+          <span className="min-w-0 font-sans text-[9px] sm:text-[12px] uppercase tracking-[0.14em] sm:tracking-[0.25em] font-semibold text-[#d9b358] drop-shadow-[0_1px_10px_rgba(0,0,0,0.8)]">
             Traditional Puppet Show (Phnom Penh • Bangkok)
           </span>
-          <span className="hidden sm:block h-[1px] w-14 shrink-0 bg-[#D49E24]/60" />
+          <span className="hidden sm:block h-[1px] w-14 shrink-0 bg-[#d9b358]/60" />
         </div>
       </div>
     </div>

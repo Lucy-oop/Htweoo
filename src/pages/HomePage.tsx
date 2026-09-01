@@ -17,6 +17,7 @@ export default function HomePage() {
     let animationFrameId: number;
 
     const mainCanvas = document.getElementById('main-canvas');
+    const heroTitle = document.getElementById('hero-title');
 
     const updateLoop = () => {
       const scrollY = window.scrollY || window.pageYOffset || 0;
@@ -42,6 +43,7 @@ export default function HomePage() {
           }
 
           if (mainCanvas) mainCanvas.style.visibility = 'visible';
+          if (heroTitle) heroTitle.style.visibility = 'visible';
         } else if (scrollY <= vh + maxScroll) {
           // PHASE 2: Gallery Phase
           // Panel is fixed at top, inner wrapper translates upwards
@@ -54,6 +56,7 @@ export default function HomePage() {
           }
 
           if (mainCanvas) mainCanvas.style.visibility = 'hidden';
+          if (heroTitle) heroTitle.style.visibility = 'hidden';
         } else if (scrollY <= heroScrollTotal) {
           // OUTRO PHASE: inner wrapper stays pinned at maximum scroll
           if (panelRef.current) {
@@ -64,11 +67,18 @@ export default function HomePage() {
           }
 
           if (mainCanvas) mainCanvas.style.visibility = 'hidden';
+          if (heroTitle) heroTitle.style.visibility = 'hidden';
         } else {
           // Past hero section into main content
           if (panelRef.current) {
             panelRef.current.style.transform = `translate3d(0, -${scrollY - heroScrollTotal}px, 0)`;
           }
+
+          // Must be set here too: a jump-scroll (anchor link, restored scroll
+          // position) can land in this branch without passing through the ones
+          // above, which would leave the fixed hero painted over the footer.
+          if (mainCanvas) mainCanvas.style.visibility = 'hidden';
+          if (heroTitle) heroTitle.style.visibility = 'hidden';
         }
 
         // CARDS SCALE IN/OUT PER-FRAME

@@ -6,7 +6,7 @@ interface GlobalNavProps {
 }
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `nav-link hover:text-[#D49E24] transition-colors duration-300${isActive ? ' active' : ''}`;
+  `nav-link hover:text-[#d9b358] transition-colors duration-300${isActive ? ' active' : ''}`;
 
 export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
   const navRef = useRef<HTMLElement>(null);
@@ -49,7 +49,7 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
     <nav
       ref={navRef}
       id="global-nav"
-      className={`fixed top-0 w-full z-50 backdrop-blur-md border-t-[3px] border-[#D49E24] ${
+      className={`fixed top-0 w-full z-50 backdrop-blur-md border-t-[3px] border-[#d9b358] ${
         scrolled ? 'scrolled' : ''
       }`}
     >
@@ -65,7 +65,7 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
           <div className="flex items-center justify-center gap-3">
             <img
               alt="Marionette Icon"
-              className="h-8 w-8 shrink-0 rounded-full object-cover border border-[#D49E24]/50 opacity-90"
+              className="h-8 w-8 shrink-0 rounded-full object-cover border border-[#d9b358]/50 opacity-90"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvUfrttDZ4xYeKawyoPnf3XYYP7WS0hpJZm6oBhmlWfUxS1V6NKyq4TS3gn401-BjNh7F5t-VA8X8CbWC25WWlO72xQtant9nJVf2xVmxOPGdOfzMEW7XUXioySYqE4v8s57O7QXIcv4Mlh-UXa1Av0m18H7aRQDbahhK5UQnqpFXoVyrck4z5qrUV7MShj5DOM4WTOeITNw4XmqGN7jcz-hzkv03lQj_nqhe8bdTGNZWoA30MrACZRAv-OL9ht1CHjkMid3E9tsjsTQ"
             />
             <span className="font-serif text-[19px] sm:text-[24px] md:text-[28px] text-[#F5F5F7] tracking-wider leading-tight">
@@ -73,11 +73,11 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
             </span>
           </div>
           <div className="mt-2 inline-flex items-center gap-2 max-w-full">
-            <span className="h-[1px] w-4 shrink-0 bg-[#D49E24]/60" />
-            <span className="min-w-0 text-[#D49E24] font-sans text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-widest font-semibold">
+            <span className="h-[1px] w-4 shrink-0 bg-[#d9b358]/60" />
+            <span className="min-w-0 text-[#d9b358] font-sans text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-widest font-semibold">
               Traditional Puppet Show (Phnom Penh • Bangkok)
             </span>
-            <span className="h-[1px] w-4 shrink-0 bg-[#D49E24]/60" />
+            <span className="h-[1px] w-4 shrink-0 bg-[#d9b358]/60" />
           </div>
         </Link>
 
@@ -100,7 +100,7 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
-          className="lg:hidden shrink-0 text-[#F5F5F7] hover:text-[#D49E24] p-2 focus:outline-none z-50 relative"
+          className="lg:hidden shrink-0 text-[#F5F5F7] hover:text-[#d9b358] p-2 focus:outline-none z-50 relative"
         >
           <span className="material-symbols-outlined text-[28px]">
             {menuOpen ? 'close' : 'menu'}
@@ -113,13 +113,13 @@ export default function GlobalNav({ onOpenBooking }: GlobalNavProps) {
       {/* Mobile Slide-over Drawer */}
     <div
       id="mobile-menu"
-      className={`fixed inset-y-0 right-0 w-64 bg-[#1C1D1F] border-l border-[#D49E24]/30 shadow-2xl z-[45] lg:hidden flex flex-col pt-24 px-8 gap-8 ${
+      className={`fixed inset-y-0 right-0 w-64 bg-[#1C1D1F] border-l border-[#d9b358]/30 shadow-2xl z-[45] lg:hidden flex flex-col pt-24 px-8 gap-8 ${
         menuOpen ? 'open' : ''
       }`}
     >
-      <NavLink to="/" end onClick={() => setMenuOpen(false)} className={({ isActive }) => `font-sans text-sm tracking-widest border-b border-[#D49E24]/20 pb-3 transition-colors ${isActive ? 'text-[#D49E24]' : 'text-[#F5F5F7] hover:text-[#D49E24]'}`}>HOME</NavLink>
-      <NavLink to="/about" onClick={() => setMenuOpen(false)} className={({ isActive }) => `font-sans text-sm tracking-widest border-b border-[#D49E24]/20 pb-3 transition-colors ${isActive ? 'text-[#D49E24]' : 'text-[#F5F5F7] hover:text-[#D49E24]'}`}>ABOUT US</NavLink>
-      <NavLink to="/history" onClick={() => setMenuOpen(false)} className={({ isActive }) => `font-sans text-sm tracking-widest border-b border-[#D49E24]/20 pb-3 transition-colors ${isActive ? 'text-[#D49E24]' : 'text-[#F5F5F7] hover:text-[#D49E24]'}`}>HISTORY</NavLink>
+      <NavLink to="/" end onClick={() => setMenuOpen(false)} className={({ isActive }) => `font-sans text-sm tracking-widest border-b border-[#d9b358]/20 pb-3 transition-colors ${isActive ? 'text-[#d9b358]' : 'text-[#F5F5F7] hover:text-[#d9b358]'}`}>HOME</NavLink>
+      <NavLink to="/about" onClick={() => setMenuOpen(false)} className={({ isActive }) => `font-sans text-sm tracking-widest border-b border-[#d9b358]/20 pb-3 transition-colors ${isActive ? 'text-[#d9b358]' : 'text-[#F5F5F7] hover:text-[#d9b358]'}`}>ABOUT US</NavLink>
+      <NavLink to="/history" onClick={() => setMenuOpen(false)} className={({ isActive }) => `font-sans text-sm tracking-widest border-b border-[#d9b358]/20 pb-3 transition-colors ${isActive ? 'text-[#d9b358]' : 'text-[#F5F5F7] hover:text-[#d9b358]'}`}>HISTORY</NavLink>
       <a
         href="#"
         onClick={handleTickets}

@@ -22,7 +22,7 @@ export default function LivingLegacy({ onOpenBooking }: LivingLegacyProps) {
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-amber-50 tracking-tight leading-[1.1] mb-4 capitalize">
             We preserved slow living and{' '}
-            <span className="font-serif italic text-[#E5A93C] font-normal">royal puppetry</span> long before it became history.
+            <span className="font-serif italic text-[#d9b358] font-normal">royal puppetry</span> long before it became history.
           </h1>
           <p className="font-sans text-[14px] md:text-[16px] text-[#C4C4C4] leading-relaxed font-normal">
             Our master artisans dedicate decades to perfecting the intricate craft of traditional Myanmar marionettes, ensuring every carve and stitch honors the royal legacy.
@@ -68,7 +68,7 @@ export default function LivingLegacy({ onOpenBooking }: LivingLegacyProps) {
 
       {/* Center Quote Section */}
       <section className="mb-20 text-center px-4 md:px-24">
-        <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#E5A93C] font-normal text-center my-12 sm:my-16 px-6 max-w-3xl mx-auto leading-relaxed tracking-wide">
+        <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#d9b358] font-normal text-center my-12 sm:my-16 px-6 max-w-3xl mx-auto leading-relaxed tracking-wide">
           "One day, we set out to create a sanctuary where the ancient magic of Myanmar marionettes could be felt on your own skin."
         </p>
       </section>
