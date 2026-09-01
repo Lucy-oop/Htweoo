@@ -3,18 +3,25 @@ export const VIDEO_ASSETS = {
   right: 'https://gcfhxssieicuekikmbpf.supabase.co/storage/v1/object/public/Video(htweOo)/Marionette_puppet_turns_head_202608311031.mp4',
 };
 
-export const GALLERY_IMAGES: string[] = [
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2010_47_25%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2010_51_39%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_03_10%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2010_58_16%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_03_10%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_05_16%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_41_55%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_42_01%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_47_20%20AM.png',
-  'https://adaqzhgwpspddfaffslz.supabase.co/storage/v1/object/public/videos/ChatGPT%20Image%20Aug%2031,%202026,%2011_47_33%20AM.png',
+// Local gallery assets — files live in public/images/ and are served from /images/
+// encodeURI (not encodeURIComponent) escapes the spaces but leaves the commas literal;
+// Vite's static middleware does not resolve %2C and falls through to index.html.
+const GALLERY_FILENAMES: string[] = [
+  'ChatGPT Image Aug 31, 2026, 10_47_25 AM.png',
+  'ChatGPT Image Aug 31, 2026, 10_51_39 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_03_10 AM.png',
+  'ChatGPT Image Aug 31, 2026, 10_58_16 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_00_38 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_05_16 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_41_55 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_42_01 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_47_20 AM.png',
+  'ChatGPT Image Aug 31, 2026, 11_47_33 AM.png',
 ];
+
+export const GALLERY_IMAGES: string[] = GALLERY_FILENAMES.map(
+  (name) => encodeURI(`/images/${name}`)
+);
 
 export const SYMBOLS = ['8', '$', '^^', '%', '/'];
 
