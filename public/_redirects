@@ -1,0 +1,2 @@
+# SPA fallback: deep links like /about and /history must resolve to the app shell
+/*    /index.html   200
