@@ -11,12 +11,12 @@ import {
   ArrowRight,
   X,
   Sparkles,
-  Ticket,
   Mail,
   Copy,
   Check,
   ThumbsUp,
 } from 'lucide-react';
+import { FALLBACK_IMAGE, CARD_FALLBACKS, handleImageError } from '../lib/images';
 
 interface ContentSectionsProps {
   onOpenBooking?: (eventTitle?: string) => void;
@@ -43,6 +43,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
   const videoList = [
     {
       id: 'title-song',
+      fallback: CARD_FALLBACKS.stage,
       title: 'TITLE SONG OF HTWE OO MYANMAR',
       tag: 'Title Song',
       sub: 'Featured Performance',
@@ -55,11 +56,12 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
     },
     {
       id: 'orchestra',
+      fallback: CARD_FALLBACKS.orchestra,
       title: 'MYANMAR TRADITIONAL ORCHESTRA MUSIC',
       tag: 'Smote Khan',
       sub: 'King Puppet Act',
       image:
-        'https://lh3.googleusercontent.com/aida/AEtjO1UDEZPADxupqA5p6X9usvDAEcZaRRrRDjhMss8NVCkaUST-iaxpJ_yAJv3u_hdbXVnxuvAni9aS5v50Z6sGOOiwFkphIuilDWb58oc4bUu_ZZH2p4OalFhKLGEf69V07XPxub6Q-GtwpBP3PoKc8f8tvEOJ77MmXWJyZQCojuGY0htVzkld7Gu0oD7dXQNfQr9frWXpTSTDnPFXl5wGJX94YPE4aIsQcP5H_AeP1t67IVVtz0meCjxzqB8',
+        CARD_FALLBACKS.orchestra,
       videoUrl:
         'https://gcfhxssieicuekikmbpf.supabase.co/storage/v1/object/public/Video(htweOo)/Marionette_turning_head_right_202608311032.mp4',
       description:
@@ -67,6 +69,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
     },
     {
       id: 'documentary',
+      fallback: CARD_FALLBACKS.archive,
       title: 'TRADITIONAL THEATRE BY MARK FISHMAN',
       tag: 'Documentary',
       sub: 'Htwe Oo Myanmar',
@@ -79,6 +82,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
     },
     {
       id: 'behind-scenes',
+      fallback: CARD_FALLBACKS.craft,
       title: 'PULLING STRINGS BY EMOTION',
       tag: 'Behind The Scenes',
       sub: 'Master Puppeteers',
@@ -91,6 +95,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
     },
     {
       id: 'royal-dance',
+      fallback: CARD_FALLBACKS.stage,
       title: 'ROYAL DANCE OF THE MARIONETTES',
       tag: 'Full Performance',
       sub: 'Cultural Heritage',
@@ -104,42 +109,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
   ];
 
   return (
-    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans selection:bg-[#d9b358] selection:text-[#181212]">
-      {/* TOP NAVIGATION BAR */}
-      <header className="sticky top-0 z-50 w-full bg-[#181212]/95 backdrop-blur-md border-b border-[#534343]/60 px-6 sm:px-8 lg:px-12 py-4">
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full border border-[#d9b358] bg-[#231b1b] flex items-center justify-center text-[#d9b358]">
-              <Theater className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-amber-50 uppercase block">
-                Htwe Oo Myanmar
-              </span>
-              <span className="font-sans text-[10px] text-amber-500/90 tracking-widest uppercase block -mt-1 font-semibold">
-                Traditional Puppet Theatre
-              </span>
-            </div>
-          </div>
-
-          <nav className="hidden md:flex items-center gap-6 font-sans text-xs uppercase tracking-widest text-[#c4c4c4]">
-            <a href="#living-legacy" className="hover:text-[#d9b358] transition-colors">Legacy</a>
-            <a href="#awards-section" className="hover:text-[#d9b358] transition-colors">Awards</a>
-            <a href="#news-section" className="hover:text-[#d9b358] transition-colors">Tour & News</a>
-            <a href="#performance-highlights" className="hover:text-[#d9b358] transition-colors">Performances</a>
-            <a href="#moments-gallery" className="hover:text-[#d9b358] transition-colors">Gallery</a>
-          </nav>
-
-          <button
-            onClick={() => onOpenBooking && onOpenBooking('Htwe Oo Myanmar Marionette Show')}
-            className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-stone-950 font-sans text-xs font-bold uppercase tracking-wider rounded-full shadow-md hover:from-amber-300 hover:to-amber-500 transition-all cursor-pointer"
-          >
-            <Ticket className="w-3.5 h-3.5" />
-            <span>Book Seats</span>
-          </button>
-        </div>
-      </header>
-
+    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans selection:bg-[#d9b358] selection:text-[#181212] pt-[var(--global-nav-h)]">
       {/* SECTION 1: LIVING LEGACY & SANCTUARY */}
       <main id="living-legacy" className="w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-20 relative">
         {/* Top Split Section */}
@@ -160,6 +130,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
           <div className="md:col-span-7 grid grid-cols-2 grid-rows-2 gap-2 h-[480px] sm:h-[600px]">
             <div className="col-span-1 row-span-2 relative overflow-hidden border border-[#534343]">
               <img
+                onError={handleImageError}
                 className="w-full h-full object-cover"
                 alt="Close-up of an elderly master woodcarver's hands shaping a traditional Myanmar marionette head from dark wood."
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaNnhCuc2xurw1LzcHbGexSEyAdJxU0bgq1TAN6LKFLG2_7HEAGvx1gnNkSvSmzQucmYtbLYXoOVQ8UZjzT1jz3s8twYmTpVj1Sx5PdXwIXcttdKrC1xMrlMu2CK6XKbyFHdJIvKIR0JqvP4yNH1KFwZt9KD-bkBV6CVNSoNhnm8I9S2bOVsN9Cfi1Dcju4wj3icwK_Wk40xeoqwzIU0XhZF31F3W8J1CpAY_9nh9FjueGcQoJoEBXMGTOdlPKQ4DpuNBHWmwwUtQkcQ"
@@ -167,6 +138,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
             </div>
             <div className="col-span-1 row-span-1 relative overflow-hidden border border-[#534343]">
               <img
+                onError={handleImageError}
                 className="w-full h-full object-cover"
                 alt="Extreme close-up of intricate traditional Myanmar embroidery."
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1CmvaSF6b24wwlITA-vpvdUMdRMeaZG0JWS7nc6Z579i9TSRVdfllPJJwSR8uBe-dkA6Z6rFmM7HkJ_BZVE9_Mh2yALWZaxB8qjqQYk_PTeCr9IUgCz7wsigqdopv00sT7d8wFyr6lGXFdgbhaMX7-fbUzJp-pg4fz5pBJTyXTIxqgf3yRJqgnEvTvOhxMyuVmTgiaCSHi8NJD7fLemyLwIPrbSlDUmnllqxcuaBjW6gNBJABAY7XUkPgMEzDNE57oTNud3XXL7Xo7Q"
@@ -174,6 +146,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
             </div>
             <div className="col-span-1 row-span-1 relative overflow-hidden border border-[#534343]">
               <img
+                onError={handleImageError}
                 className="w-full h-full object-cover"
                 alt="A full ensemble of exquisite traditional Myanmar marionettes standing on a wooden stage."
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5CoFrTbl6ZgL5OGZRojrmzNJ7oW4SrzL42jqyKLWsPNKzt4okvHdaH3NKaYheG49hXvqh9Tv_V3OQiLyDaR-9A6yY2AmsVylrmbrSFHtlP8sy2ddh6gP3f8C1GYiytVhAuVZcrstum2sxesZqA3O-Re3KrQLydLFFqeQkRxOCXzwFQEfWiKT5oCv8t5aYLs4DQNOQzElBIJNN9D0xIJiEeKGdg2CaY4R_skvG2tzZUpR6DYK2t9bAUHcZRFG74Gu2SB5RZyHFjNlylQ"
@@ -203,6 +176,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
           <div className="md:col-span-7 grid grid-cols-2 gap-2 h-[320px] sm:h-[400px]">
             <div className="col-span-1 relative overflow-hidden border border-[#534343]">
               <img
+                onError={handleImageError}
                 className="w-full h-full object-cover"
                 alt="A young, apprentice puppeteer delicately holding the wooden control bar of a marionette."
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5VFk4qs8wcoUQ-jRtHOXcRR72LlCdySsqu7rtlblNjDtLnYtSGcYu007mMiR90tfsC8W_Itu1FfipyrkYCZiWBUi4xhUzSxwzyNPstIMNS3ljQyt1XKmyc9exnXpkoKAmSRf6SNoTgzunumpxuDnjv_4MDKtOusT2TDQEPdAJXZdR0-b406I3NY6biJLdbUSCKw0mYJZ8KiL46NsgqBgq09VxkgihqLS9KXJz3hftWAXdDqr2GMmm3_vwHAnuRAB2Jm8TXwehn0T-LA"
@@ -210,9 +184,10 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
             </div>
             <div className="col-span-1 relative overflow-hidden border border-[#534343]">
               <img
+                onError={handleImageError}
                 className="w-full h-full object-cover"
                 alt="Detail shot of the worn, polished wooden floor of a traditional puppet stage."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT7UPobl5_Zyy3GHqRapMc57yfyiKjV9ynTHaxEhptW99TgyRa_OQq12zYyJiYYy1Cvpk2c36TLJE_yPewLW3sZlWPOwI3bze9fdbMQ9ab6-PZ1L5ifRuIrjBSoCyGaz5HCtQRfoYJ3T43oWZK8Nm9rnADeTwCjEQbU--gDUY-rxIUiPzsNx7aGToGtpu66jGGHsRe9q2_OqSJc8Ro-VV2DNOx2dhBt8D6e6TGEnnJemh_jxYNDO8iNsH4QsA-YT0GLPWrw_j2PVx9A"
+                src={FALLBACK_IMAGE}
               />
               <svg
                 className="absolute bottom-2 right-2 w-12 h-12 opacity-30 text-amber-400"
@@ -248,6 +223,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
           <section className="relative w-full flex flex-col lg:flex-row bg-[#1f1a1a] overflow-hidden mb-16 border border-[#534343]">
             <div className="w-full lg:w-5/12 min-h-[420px] lg:min-h-[500px] relative shadow-2xl overflow-hidden">
               <img
+                onError={handleImageError}
                 alt="Burmese Marionette"
                 className="absolute inset-0 w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC85UKB9Xq6kMaKO9kmQoebo6C2AeGXjG1Y1t5bO8dW98yB1kWGy0mxqFpYNtI92cEwfCNT2XorghhLmHKaCTPS7P3KQWt4SZag4u_RpdKPVg7XM8G4mfGCOpRgblc4elJLckQ0zbx0OH9Kf9gV8A881Hp5cBF_xz2HO8aJxGMZvkmNAYTB6WT3edHtM7W4gk8zsyBJJ0qUN6alVHXSBrb8GA2IE0-_Ygb5SHe_p20_yyBrc3i4d08KIou5g6qkDK6NjsN8OIbBSEN3cw"
@@ -468,7 +444,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url('${videoList[0].image}')` }}
+                style={{ backgroundImage: `url('${videoList[0].image || videoList[0].fallback}')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#181212]/95 via-[#181212]/40 to-transparent" />
               <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
@@ -498,7 +474,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url('${videoList[1].image}')` }}
+                style={{ backgroundImage: `url('${videoList[1].image || videoList[1].fallback}')` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#181212]/95 via-[#181212]/40 to-transparent" />
               <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
@@ -526,7 +502,11 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               onClick={() => setSelectedVideo(videoList[2])}
               className="md:col-span-2 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-[290px] border border-[#d9b358]/40 bg-[#1f1a1a] flex flex-col"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#2c2525] to-[#1f1a1a] opacity-80 z-0" />
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 z-0"
+                style={{ backgroundImage: `url('${videoList[2].image || videoList[2].fallback}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181212]/95 via-[#181212]/70 to-[#181212]/30 z-0" />
               <div className="relative z-10 p-6 flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <span className="bg-stone-900/80 backdrop-blur-md text-amber-400/90 border border-amber-500/30 text-[11px] uppercase font-sans tracking-widest font-semibold px-2.5 py-1 rounded-sm">
@@ -552,7 +532,11 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               onClick={() => setSelectedVideo(videoList[3])}
               className="md:col-span-2 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-[290px] border border-[#d9b358]/40 bg-[#1f1a1a] flex flex-col"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#2c2525] to-[#1f1a1a] opacity-80 z-0" />
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 z-0"
+                style={{ backgroundImage: `url('${videoList[3].image || videoList[3].fallback}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181212]/95 via-[#181212]/70 to-[#181212]/30 z-0" />
               <div className="relative z-10 p-6 flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <span className="bg-stone-900/80 backdrop-blur-md text-amber-400/90 border border-amber-500/30 text-[11px] uppercase font-sans tracking-widest font-semibold px-2.5 py-1 rounded-sm">
@@ -578,7 +562,11 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               onClick={() => setSelectedVideo(videoList[4])}
               className="md:col-span-2 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-[290px] border border-[#d9b358]/40 bg-[#1f1a1a] flex flex-col"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#2c2525] to-[#1f1a1a] opacity-80 z-0" />
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 z-0"
+                style={{ backgroundImage: `url('${videoList[4].image || videoList[4].fallback}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181212]/95 via-[#181212]/70 to-[#181212]/30 z-0" />
               <div className="relative z-10 p-6 flex flex-col justify-between h-full">
                 <div className="flex justify-between items-start mb-6">
                   <span className="bg-stone-900/80 backdrop-blur-md text-amber-400/90 border border-amber-500/30 text-[11px] uppercase font-sans tracking-widest font-semibold px-2.5 py-1 rounded-sm">
@@ -621,6 +609,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               <div className="md:col-span-4 flex flex-col gap-4">
                 <div className="group overflow-hidden h-[340px] relative border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Marionette face detail"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-UbeI5srglrVDlkMMkSu7Ywx_pvTJfv-US95L8mJ-Sh0DESS5Z9beYYbbNjuuj3EYpICEUHQ3oxjA9hcLG3jGDd0XGmKGGOnr4J14fUfFoEMnmaK_UjxPcIM0jpD-Av16a2zxJuDwAkWu0lKsgoGlnHrCWE_Uxy_9emzC3KCnO8v7JjOAok85Mb1iCrM9jGBC9wDVj05cyhr0Qp1_QY8VfeLJcLbs48RpBl2t-23rjX7upemyQlZagFLsU_mBcLRf6iJjP32jlydRUQ"
@@ -628,6 +617,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[280px] relative border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Stage action"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgrtUEyiVD3soKrnR3PVKqKhkTgfNVhUr8EgtsTiXBs8LH0Yu8nTui3BzoDyosKjfuuy8uIUFmWBmv_3swcFeuCyK61QZiTgCcbSri1PDhgXDyYyV_pG9mtJ40HGArnnsFK55DYA0LORvaENo7zDJvK6RtNeDLCdC14L57RRUyiEAbx1OrUB_dbh5HilzETLGumpXAEE69cFSRc7EB9tdK4IIoNgWDbScwrOJSRvM3yo5IZ6x5kifcsQ9xS8Ck2SnEy94-WOxvHdnA5g"
@@ -635,6 +625,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[220px] relative border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Full troupe"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1Kcsp9QDSJqnUvlNSIVtYyd6EXk8NBcmUUhrVSw4idQZjH9spqPN0qEAiYjCM7wLEN0oaEc02zvUNsuxtkNsEmsL8ImHSOXws6tLHCMbu7MU8-ZnA2QBSuhJeSJToxMYc-vWJ7R00cvgFAsRyJoQBejjfk7khT-0h-_TXtOJvjqYcscLyhsia1j-0ox7GYYM3ThxFfST8OXEujX-ryTJepZRjaOBKCUO00b5_9-wYRaLTRAMTH5tzA2qLwMM8J9X29YIHfV8AKtgL5g"
@@ -646,6 +637,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               <div className="md:col-span-2 flex flex-col gap-4">
                 <div className="group overflow-hidden h-[165px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="String mechanism"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXRJIgfo0mu7pGuYZn6EECGiEgRUbKwk35poHkBI8ZfUz6jTvo0nxcPFSkPdG22oj3goHPK2nIetDnDqDwwA-HYf0Wj2CiTbIUXhpY2g_GQTKyjkc7fp5JgCDv8H10edg7cPUSVZX9Ro_53yR5iZ6v3w-v1RlJc0vK6HQ-xA0okHNhXFtZ8b1q97QJfikAewZxo3xO6BcoOx6xHJRJ1G0VRGdJF5koTqHf-Vt2FGbM2BfKDZP-j5QpslhDZP2aQPBJk89TQZ3_Gm38sw"
@@ -653,6 +645,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[165px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Tools"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGV0eQC3J0EhL4F2cYQdYJsIeqacp3YlHwwy5gj0xHxTNZsuGD3sJbukEVUCnRO4DUPNxNzgCM9xSUXjz4SKkFJMdkzq0HVk4kUBPXwnkmJkxkkNE8R6fkFE6yv7aDzYTxlWXf0-ZEU9ewRY9GiTYaHbBo-g8xb534lHNJjbT7pB8atD_SJwZ7lFHIeqmzxKf-OWCy8r0Ky6rJ4VrCjSPa_Fcd-vQRUvpp_GnKY2d-cQ-cC4AjhYRUM1L_hJFpuV1lE68Fn4ntuj_VUw"
@@ -660,6 +653,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[180px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Embroidery"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_crnRXG7lYkGnfbugu4YsDFiTOdnrayGnDJOWS5FFBGR-bravxMKOdw_y3eLgzA8hB5STYqaON7_7FpP5akxcEjU3U6ht80wVKpKjI3vUv2Yd9MB9ENDrBtbEEQmwohw-wmruNnYZizpnhsOK_WKVHAK8bxaNf75JBaQSbECaz48w8XXCsQMm5ImzHEpgOZku4PrDwT8mOofdPWrRnvA_-3zQh-ZBzx6T-Rp-Su93ADFWh4Y_N5qduUcLlFXme5fz0Jc72Y5Z1yAgTQ"
@@ -667,6 +661,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[140px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Hand position"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtmD5eptDVH1JzvD4fRI_MKeohlaFeay0kmE6LHzWOQFf6NxwEDkVFHiar125afSW_OTVkrsB0Io-K2-lmMG9Zymjrx5nwWAUR6pgHvfrM5cGyQ4gHgdplJlC1IsWYt9MzrDFhGgO3deMaIOLTviV0IIyuJYpcufdD2oAA6LfNqrGXn9WP-ILw0OcFWTZ5wxNbgMmQ1dXAlmxVXRIMgQ5Vk0CtbOiWOjTKPMR8UF3fLA_kXWVlSzyFmXW82u54YoxcfqajMY7nmsAaFQ"
@@ -678,6 +673,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               <div className="md:col-span-3 flex flex-col gap-4">
                 <div className="group overflow-hidden h-[240px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Rehearsal"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDeot4wCGdi8yNx0ou4kmotOn5NceB-CyoZu07ee1JNfHklNGhcg55A-DusH3MECokKbrCc3qbWYRoDSI4kpM_yZZps-gN6Eor94kUdmgGnrqy-zO1YJzdsJJduhzSds802lgQFGEsoUpd2lHoL62G_YpF36zBedle-13ydEwbQ98OJkLwOyaK6tPs-8XShsACC1KSOpYEDUQmDSNI1UcgGSVczF8jWlUPIIONqe_rDHfAHqcNb8iKTSEQSCFR6KtaCW7MzxYHX4Yp6Q"
@@ -685,6 +681,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[180px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Orchestra"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCqITHT_nn-njXHceuRL052nYDhDQqGJlerePJolGABkAzw9wmjylaBQbpLf-B4359BmJ-JgY6VX5QT7YBd_SvVbe8MHt2IDb4N87XNAc-204YZqWqiEc3jbE2WKWU2qQntqBT846HkAeoabaz_xgmQSvvyuBz4DtEPfnmWdU5WjFs88L5U8p5MLJ0iWePEtpi8DJHcdpqywJcxDdyB7SHOKzMA3nPKvVEGemyNEYP_RZRPIzEY3dYIYyGV2KmgwsBD2FtTwArzOoPlA"
@@ -693,6 +690,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 <div className="grid grid-cols-2 gap-4 h-[130px]">
                   <div className="group overflow-hidden border border-[#534343]">
                     <img
+                onError={handleImageError}
                       alt="Festival stage"
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlqUGE94NmMDVC1e1UNWplucxEOPyztWK1sLNP9K5LGqcaxf_4FIUdXNLCXtjYK9Ww6DGWZAAya8pK8wIPjhL4m50jxXV9F_cyDjUYtIJ1EvsRtYLzv3X58WkeQFWjl63J_9YD_vFaej9DM6mEU_0hsro6DUKCkohzzyvcxebkaA2RjovzXRy0o-bhrec9nPSBGWaPyBY0zjNHYr-3EjN6JLhWFd4RqROkxFIUPDB-CuwJzDpupFajMqfNVb74MzlQ-f1lU34CRq6qHA"
@@ -700,6 +698,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                   </div>
                   <div className="group overflow-hidden border border-[#534343]">
                     <img
+                onError={handleImageError}
                       alt="UNIMA award"
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN9gJ2zbVaACUdGvFSIdUzQW3AvGl9Lxt1SqlkxQICYlpydPx0NliijpVZXicFlTH4ngba4uJI-fxQQBA1RwUBG-Gnq0W_xPqmxGijpYDdZW6aVGco-6qm78k9ySrS3EGjt9CAS8Q88ivK_kHha4x7DehJQrJb40UAYI7UV-fsOUOWHHOX_6_9MnhAF0LQs2pu_x6aVZ-c_Aiu32yX94qgrOwCwxu8z0oX0aREA8wNB508w7-wE-6uFGHQpzlm479KRoQ2e44OZ87zjg"
@@ -712,6 +711,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
               <div className="md:col-span-3 flex flex-col gap-4">
                 <div className="group overflow-hidden h-[360px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Master Khin Maung Htwe"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoNcw3VcUUw-2HJiiuX-_GQ_JAIoAWibMEGA6DlpcALRtMPQJw7WwByr9JN2otaKr_zngu1eAfNJj-HoSxqOli65nNvpDnD-xMtUNCzwq5n5SplRVSOStKvz_Y4cO89OwOyi4IH4AwTH5kn3_z5thnSgDuKyX6j5a3wwPh1s8kROF3m04vgzvRTMl1h7GdAIvIt9RK-kcIHPpHL7NjawAPMgbFS5JgdVapWRna5fGSLTQ5iZ54hfO5SxZNFKpezhDvku21jvchYY6T-w"
@@ -719,6 +719,7 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
                 </div>
                 <div className="group overflow-hidden h-[460px] border border-[#534343]">
                   <img
+                onError={handleImageError}
                     alt="Group award photo"
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjICRZjtGYvMTdkh7YX7aty6-gTQ9e86GtNXn1rCXnF6R7-SZ3xsJQd6K5ciKq6j5AXMReiBM7fdg74Dft2NFrB6EWGcVqGpBsjnHZJ5L3vX4wOzlza8pvD159r9wyDjJxryrAaT_aOKHDRLMS9bkOD0HWxvh2JDXxHW9gL8zHg9MJs7nBkt4CyjA0KHO7EJHyeU7HoZWuS7qPVsYCp7LMTYNtFpsdyS0WRCSayPF8ePbQtYuxKv0LGQRULkLTe0UMMfiSKnbuu1b47g"
@@ -743,120 +744,6 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
         </main>
 
         {/* SECTION 6: FOOTER */}
-        <footer
-          className="relative w-full flex flex-col items-center pt-20 pb-10 overflow-hidden border-t border-[#D49E24]/30"
-          style={{
-            backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBxr7IPZglATfZ2ciaeyTP0J4TIeMR3JXAzAwsgxT6wPJoG3zNtrlHkDF2pBZIoJHe1GgtyAObeti3z818OuCrZm6Ic208Y2w_bhb7rKweOhCSHWrJVTGdv7tRXYw8wzdZTvSdAE3rm6gT5A_cF3jkme0uOElFkg0MS55hiddKHutJEZ_UEGEQPg6pvjZ9tRETglEyznHDwIkgXOsDs0Vjq4IH59Uw2ne2anYimZ0DmSa7z030Atja_vbcWR7ov1U9sE-N2OP7wnIpP2g')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-          }}
-        >
-          <div className="absolute inset-0 bg-[#181212] bg-opacity-90 mix-blend-multiply pointer-events-none z-0" />
-
-          <div className="relative z-10 w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            {/* Column 1 */}
-            <div className="flex flex-col items-start gap-4">
-              <h3 className="font-serif text-2xl font-bold text-[#D49E24] tracking-wide">
-                HTWE OO THEATRE
-              </h3>
-              <p className="font-sans text-[14px] text-[#E5DDCB] leading-relaxed max-w-xs font-normal">
-                A cultural sanctuary dedicated to the preservation and performance of traditional Myanmar royal puppetry. Experience the magic of wooden souls.
-              </p>
-              <button
-                type="button"
-                className="mt-2 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#D49E24] bg-[#2c2525]/80 text-[#E5DDCB] hover:bg-[#D49E24] hover:text-black transition-colors duration-300 font-sans text-[12px] uppercase font-bold tracking-widest"
-              >
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                TripAdvisor 5.0
-              </button>
-            </div>
-
-            {/* Column 2 */}
-            <div className="flex flex-col items-start gap-4">
-              <h3 className="font-serif text-xl font-bold text-[#D49E24] tracking-wide uppercase">
-                Explore Theatre
-              </h3>
-              <ul className="flex flex-col gap-3 font-sans text-[14px] text-[#E5DDCB]">
-                <li>
-                  <a className="hover:text-[#D49E24] transition-colors relative group" href="#moments-gallery">
-                    Our Heritage
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D49E24] transition-all group-hover:w-full" />
-                  </a>
-                </li>
-                <li>
-                  <a className="hover:text-[#D49E24] transition-colors relative group" href="#moments-gallery">
-                    Marionette Gallery
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D49E24] transition-all group-hover:w-full" />
-                  </a>
-                </li>
-                <li>
-                  <a className="hover:text-[#D49E24] transition-colors relative group" href="#moments-gallery">
-                    Meet The Masters
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D49E24] transition-all group-hover:w-full" />
-                  </a>
-                </li>
-                <li>
-                  <a className="hover:text-[#D49E24] transition-colors relative group" href="#moments-gallery">
-                    International Tours
-                    <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#D49E24] transition-all group-hover:w-full" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3 */}
-            <div className="flex flex-col items-start gap-4">
-              <h3 className="font-serif text-xl font-bold text-[#D49E24] tracking-wide uppercase">
-                Weekly Shows &amp; Reservations
-              </h3>
-              <div className="font-sans text-[14px] text-[#E5DDCB] leading-relaxed">
-                <p>Current Residency:<br />Siam Nakarin Center, Songkhla</p>
-                <p className="mt-2">Hotline: +95 9 123 456 789</p>
-              </div>
-              <button
-                onClick={() => onOpenBooking?.('Siam Nakarin Weekly Show')}
-                className="mt-4 px-6 py-2.5 bg-[#D49E24] text-black font-sans text-[12px] uppercase font-bold tracking-widest rounded-sm hover:bg-[#E5A93C] transition-colors shadow-lg cursor-pointer"
-              >
-                Book Tickets
-              </button>
-            </div>
-
-            {/* Column 4 */}
-            <div className="flex flex-col items-start gap-4">
-              <h3 className="font-serif text-xl font-bold text-[#D49E24] tracking-wide uppercase">
-                Contact Us
-              </h3>
-              <button
-                onClick={handleCopyEmail}
-                className="font-sans text-[13px] text-[#E5DDCB] hover:text-[#D49E24] transition-colors flex items-center gap-2"
-              >
-                <Mail className="w-4 h-4 text-[#D49E24]" />
-                <span>director@htweoomyanmar.com</span>
-                {copied ? <Check className="w-3.5 h-3.5 text-[#4edea3]" /> : <Copy className="w-3.5 h-3.5 opacity-60" />}
-              </button>
-              <a
-                className="mt-4 w-12 h-12 rounded-full border border-[#D49E24] flex items-center justify-center text-[#D49E24] hover:bg-[#D49E24] hover:text-black transition-all"
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ThumbsUp className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="relative z-10 w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 border-t border-[#D49E24]/30 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="font-sans text-[12px] text-[#E5DDCB]/70 tracking-wide text-center md:text-left">
-              © {new Date().getFullYear()} Htwe Oo Myanmar Puppet Theatre. All rights reserved.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-6 font-sans text-[12px] text-[#E5DDCB]/80 uppercase tracking-widest">
-              <a className="hover:text-[#D49E24] transition-colors" href="#moments-gallery">Heritage Preservation</a>
-              <a className="hover:text-[#D49E24] transition-colors" href="#moments-gallery">Artist Bios</a>
-              <a className="hover:text-[#D49E24] transition-colors" href="#moments-gallery">Tour Schedule</a>
-              <button onClick={handleCopyEmail} className="hover:text-[#D49E24] transition-colors">Contact Us</button>
-            </div>
-          </div>
-        </footer>
       </div>
 
       {/* VIDEO PLAYER MODAL */}

@@ -135,7 +135,7 @@ export default function VideoBackground() {
       id="main-canvas"
       className={`fixed pointer-events-none z-0 overflow-hidden transition-opacity duration-300 ${
         isLoaded ? 'opacity-100' : 'opacity-0'
-      } inset-0 w-full h-full max-lg:top-[220px] max-lg:h-[calc(100vh-220px)]`}
+      } inset-0 w-full h-full`}
     >
       {/* Left Video */}
       <video
