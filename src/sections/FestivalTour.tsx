@@ -14,7 +14,7 @@ export default function FestivalTour({ onOpenBooking }: FestivalTourProps) {
     <>
     {/* SECTION 3: LATEST NEWS & FESTIVAL TOUR */}
     <section className="w-full px-6 sm:px-8 lg:px-12 bg-[#130d0d] border-y border-[#534343] text-[#ece0e0] pb-24">
-      <div className="max-w-[1280px] mx-auto pt-[60px]">
+      <div className="max-w-320 mx-auto pt-15">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-serif font-semibold mb-4 drop-shadow-sm capitalize leading-[1.1] text-white text-3xl sm:text-5xl lg:text-6xl">
             Latest News &amp; Festival Tour
@@ -28,7 +28,7 @@ export default function FestivalTour({ onOpenBooking }: FestivalTourProps) {
           {/* Card 1 */}
           <div
             onClick={() => onOpenBooking?.('Intangible Cultural Heritage Panel')}
-            className="h-[480px] relative overflow-hidden shadow-2xl group transition-transform duration-500 hover:-translate-y-2 cursor-pointer border border-[#534343]"
+            className="h-120 relative overflow-hidden shadow-2xl group transition-transform duration-500 hover:-translate-y-2 cursor-pointer border border-[#534343]"
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -61,7 +61,7 @@ export default function FestivalTour({ onOpenBooking }: FestivalTourProps) {
           {/* Card 2 */}
           <div
             onClick={() => onOpenBooking?.('Yoke Thé Pwe Live Show')}
-            className="h-[480px] relative overflow-hidden shadow-2xl group transition-transform duration-500 hover:-translate-y-2 cursor-pointer border border-[#534343]"
+            className="h-120 relative overflow-hidden shadow-2xl group transition-transform duration-500 hover:-translate-y-2 cursor-pointer border border-[#534343]"
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -97,7 +97,7 @@ export default function FestivalTour({ onOpenBooking }: FestivalTourProps) {
               const galleryEl = document.getElementById('moments-gallery');
               galleryEl?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="h-[480px] relative overflow-hidden shadow-2xl group transition-transform duration-500 hover:-translate-y-2 cursor-pointer border border-[#534343]"
+            className="h-120 relative overflow-hidden shadow-2xl group transition-transform duration-500 hover:-translate-y-2 cursor-pointer border border-[#534343]"
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

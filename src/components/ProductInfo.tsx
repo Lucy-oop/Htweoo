@@ -14,7 +14,7 @@ export default function ProductInfo() {
       className="fixed z-20 pointer-events-none mix-blend-exclusion flex flex-col items-center bottom-12 lg:bottom-20 left-0 right-0 lg:left-auto lg:right-8 lg:w-[330px] will-change-transform"
     >
       {/* Top block */}
-      <div className="flex flex-col items-start w-[252px] lg:w-full mb-3 lg:mb-8">
+      <div className="flex flex-col items-start w-63 lg:w-full mb-3 lg:mb-8">
         {/* Circle Icon with dynamic symbol */}
         <div className="relative w-5 h-5 lg:w-[30px] lg:h-[30px] mb-2 flex items-center justify-center">
           <svg

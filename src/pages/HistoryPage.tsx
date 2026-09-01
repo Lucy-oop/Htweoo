@@ -74,7 +74,7 @@ const ERA_IMAGES = [
 
 function EraCard({ era }: { era: Era }) {
   return (
-    <div className="bg-[#1f1a1a]/85 backdrop-blur-md border border-[#d9b358]/20 p-7 shadow-2xl hover:border-[#d9b358]/50 hover:-translate-y-1 transition-all duration-300 min-h-[340px] flex flex-col justify-between group w-full">
+    <div className="bg-[#1f1a1a]/85 backdrop-blur-md border border-[#d9b358]/20 p-7 shadow-2xl hover:border-[#d9b358]/50 hover:-translate-y-1 transition-all duration-300 min-h-85 flex flex-col justify-between group w-full">
       <div>
         <span className="font-sans text-[10px] text-[#d9b358]/70 uppercase tracking-[0.3em] block mb-4">
           {era.era}
@@ -148,14 +148,14 @@ export default function HistoryPage() {
         <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_50%_50%,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.62)_45%,rgba(0,0,0,0.2)_78%,rgba(0,0,0,0)_100%)]" />
 
-        <div className="hero-legible relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
+        <div className="hero-legible relative z-10 w-full max-w-320 mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
           {/* Gold rule + eyebrow, matching the lockup used site-wide */}
           <div className="inline-flex items-center justify-center gap-3 mb-6">
-            <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
+            <span className="h-px w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
             <span className="font-sans text-[12px] uppercase tracking-widest font-semibold text-[#d9b358]">
               Global Recognition &amp; Patronage
             </span>
-            <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
+            <span className="h-px w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />
           </div>
 
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-amber-50 leading-[1.15] tracking-wide max-w-4xl mx-auto drop-shadow-[0_2px_20px_rgba(0,0,0,0.6)]">
@@ -164,7 +164,7 @@ export default function HistoryPage() {
 
           <div className="w-24 h-px mx-auto my-8 bg-gradient-to-r from-transparent via-[#d9b358] to-transparent" />
 
-          <p className="font-sans text-[16px] text-[#c4c4c4] max-w-[720px] mx-auto mb-12 leading-relaxed">
+          <p className="font-sans text-[16px] text-[#c4c4c4] max-w-180 mx-auto mb-12 leading-relaxed">
             Documenting twenty years of global recognition, international puppet arts revival
             prizes, and official state patronage.
           </p>
@@ -186,7 +186,7 @@ export default function HistoryPage() {
       </header>
 
       {/* OUR LIVING LEGACY */}
-      <div className="w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="w-full max-w-320 mx-auto px-6 sm:px-8 lg:px-12">
         <LivingLegacy onOpenBooking={openBooking} />
       </div>
 
@@ -195,7 +195,7 @@ export default function HistoryPage() {
         <div className="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-[#4a3c1c]/25 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-10%] w-1/2 h-1/2 bg-[#4a3c1c]/15 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-[1280px] mx-auto relative z-10">
+        <div className="max-w-320 mx-auto relative z-10">
           <div className="text-center mb-20">
             <span className="font-sans text-[12px] text-[#d9b358]/70 uppercase tracking-widest font-semibold block mb-4">
               World-Class Recognition
@@ -212,7 +212,7 @@ export default function HistoryPage() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <figure className="relative overflow-hidden aspect-[3/4] min-h-[340px] border border-[#d9b358]/20 shadow-2xl group">
+              <figure className="relative overflow-hidden aspect-[3/4] min-h-85 border border-[#d9b358]/20 shadow-2xl group">
                 <img
                   alt={ERA_IMAGES[0].caption}
                   onError={handleImageError}
@@ -230,7 +230,7 @@ export default function HistoryPage() {
 
             <div className="flex flex-col gap-6">
               <EraCard era={ERAS[2]} />
-              <figure className="relative overflow-hidden aspect-[3/4] min-h-[340px] border border-[#d9b358]/20 shadow-2xl group">
+              <figure className="relative overflow-hidden aspect-[3/4] min-h-85 border border-[#d9b358]/20 shadow-2xl group">
                 <img
                   alt={ERA_IMAGES[1].caption}
                   onError={handleImageError}

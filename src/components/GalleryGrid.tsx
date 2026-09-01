@@ -45,7 +45,7 @@ export default function GalleryGrid({ panelRef, innerRef }: GalleryGridProps) {
         }}
       >
         <div
-          className="grid gap-4 sm:gap-6 lg:gap-8 w-full max-w-[1800px] mx-auto"
+          className="grid gap-4 sm:gap-6 lg:gap-8 w-full max-w-450 mx-auto"
           style={{
             gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
           }}

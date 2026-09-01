@@ -32,7 +32,7 @@ export default function SiteFooter({ onOpenBooking }: SiteFooterProps) {
     >
       <div className="absolute inset-0 bg-[#181212] bg-opacity-90 mix-blend-multiply pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="relative z-10 w-full max-w-360 px-6 sm:px-12 lg:px-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         {/* Column 1 */}
         <div className="flex flex-col items-start gap-4">
           <h3 className="font-serif text-2xl font-bold text-[#d9b358] tracking-wide">
@@ -126,7 +126,7 @@ export default function SiteFooter({ onOpenBooking }: SiteFooterProps) {
         </div>
       </div>
 
-      <div className="relative z-10 w-full max-w-[1440px] px-6 sm:px-12 lg:px-24 border-t border-[#d9b358]/30 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="relative z-10 w-full max-w-360 px-6 sm:px-12 lg:px-24 border-t border-[#d9b358]/30 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="font-sans text-[12px] text-[#E5DDCB]/70 tracking-wide text-center md:text-left">
           © {new Date().getFullYear()} Htwe Oo Myanmar Puppet Theatre. All rights reserved.
         </p>

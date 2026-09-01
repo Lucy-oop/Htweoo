@@ -13,7 +13,7 @@ export default function LivingLegacy({ onOpenBooking }: LivingLegacyProps) {
   return (
     <>
     {/* SECTION 1: LIVING LEGACY & SANCTUARY */}
-    <main id="living-legacy" className="w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-20 relative">
+    <main id="living-legacy" className="w-full max-w-320 mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-20 relative">
       {/* Top Split Section */}
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20">
         <div className="md:col-span-5 flex flex-col justify-center">
@@ -29,7 +29,7 @@ export default function LivingLegacy({ onOpenBooking }: LivingLegacyProps) {
           </p>
         </div>
 
-        <div className="md:col-span-7 grid grid-cols-2 grid-rows-2 gap-2 h-[480px] sm:h-[600px]">
+        <div className="md:col-span-7 grid grid-cols-2 grid-rows-2 gap-2 h-120 sm:h-150">
           <div className="col-span-1 row-span-2 relative overflow-hidden border border-[#534343]">
             <img
               onError={handleImageError}
@@ -75,7 +75,7 @@ export default function LivingLegacy({ onOpenBooking }: LivingLegacyProps) {
 
       {/* Bottom Split Section */}
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-        <div className="md:col-span-7 grid grid-cols-2 gap-2 h-[320px] sm:h-[400px]">
+        <div className="md:col-span-7 grid grid-cols-2 gap-2 h-80 sm:h-100">
           <div className="col-span-1 relative overflow-hidden border border-[#534343]">
             <img
               onError={handleImageError}

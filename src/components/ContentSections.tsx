@@ -24,9 +24,9 @@ export default function ContentSections({ onOpenBooking }: ContentSectionsProps)
 
       {/* SECTION 2: AWARDS & GLOBAL RECOGNITION */}
       <div className="relative z-10 bg-[#181212]/95 backdrop-blur-md">
-        <main className="w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-16 relative">
+        <main className="w-full max-w-320 mx-auto px-6 sm:px-8 lg:px-12 py-16 relative">
           <section className="relative w-full flex flex-col lg:flex-row bg-[#1f1a1a] overflow-hidden mb-16 border border-[#534343]">
-            <div className="w-full lg:w-5/12 min-h-[420px] lg:min-h-[500px] relative shadow-2xl overflow-hidden">
+            <div className="w-full lg:w-5/12 min-h-105 lg:min-h-125 relative shadow-2xl overflow-hidden">
               <img
                 onError={handleImageError}
                 alt="Burmese Marionette"

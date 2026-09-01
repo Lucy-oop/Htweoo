@@ -8,11 +8,11 @@ import { handleImageError } from '../lib/images';
  */
 export default function MomentsGallery() {
   return (
-    <div className="w-full px-6 sm:px-8 lg:px-12 max-w-[1280px] mx-auto relative z-10">
+    <div className="w-full px-6 sm:px-8 lg:px-12 max-w-320 mx-auto relative z-10">
         {/* SECTION 5: PHOTO GALLERY */}
         <section
           id="moments-gallery"
-          className="max-w-[1280px] mx-auto pt-20 pb-16 border-t border-amber-500/20 mt-20"
+          className="max-w-320 mx-auto pt-20 pb-16 border-t border-amber-500/20 mt-20"
         >
           <div className="text-center mb-12">
             <p className="font-sans text-[12px] uppercase tracking-widest text-amber-500 font-semibold mb-2 flex justify-center items-center gap-2">
@@ -28,7 +28,7 @@ export default function MomentsGallery() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
             {/* Column 1 (4 cols) */}
             <div className="md:col-span-4 flex flex-col gap-4">
-              <div className="group overflow-hidden h-[340px] relative border border-[#534343]">
+              <div className="group overflow-hidden h-85 relative border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Marionette face detail"
@@ -36,7 +36,7 @@ export default function MomentsGallery() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-UbeI5srglrVDlkMMkSu7Ywx_pvTJfv-US95L8mJ-Sh0DESS5Z9beYYbbNjuuj3EYpICEUHQ3oxjA9hcLG3jGDd0XGmKGGOnr4J14fUfFoEMnmaK_UjxPcIM0jpD-Av16a2zxJuDwAkWu0lKsgoGlnHrCWE_Uxy_9emzC3KCnO8v7JjOAok85Mb1iCrM9jGBC9wDVj05cyhr0Qp1_QY8VfeLJcLbs48RpBl2t-23rjX7upemyQlZagFLsU_mBcLRf6iJjP32jlydRUQ"
                 />
               </div>
-              <div className="group overflow-hidden h-[280px] relative border border-[#534343]">
+              <div className="group overflow-hidden h-70 relative border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Stage action"
@@ -44,7 +44,7 @@ export default function MomentsGallery() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgrtUEyiVD3soKrnR3PVKqKhkTgfNVhUr8EgtsTiXBs8LH0Yu8nTui3BzoDyosKjfuuy8uIUFmWBmv_3swcFeuCyK61QZiTgCcbSri1PDhgXDyYyV_pG9mtJ40HGArnnsFK55DYA0LORvaENo7zDJvK6RtNeDLCdC14L57RRUyiEAbx1OrUB_dbh5HilzETLGumpXAEE69cFSRc7EB9tdK4IIoNgWDbScwrOJSRvM3yo5IZ6x5kifcsQ9xS8Ck2SnEy94-WOxvHdnA5g"
                 />
               </div>
-              <div className="group overflow-hidden h-[220px] relative border border-[#534343]">
+              <div className="group overflow-hidden h-55 relative border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Full troupe"
@@ -72,7 +72,7 @@ export default function MomentsGallery() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGV0eQC3J0EhL4F2cYQdYJsIeqacp3YlHwwy5gj0xHxTNZsuGD3sJbukEVUCnRO4DUPNxNzgCM9xSUXjz4SKkFJMdkzq0HVk4kUBPXwnkmJkxkkNE8R6fkFE6yv7aDzYTxlWXf0-ZEU9ewRY9GiTYaHbBo-g8xb534lHNJjbT7pB8atD_SJwZ7lFHIeqmzxKf-OWCy8r0Ky6rJ4VrCjSPa_Fcd-vQRUvpp_GnKY2d-cQ-cC4AjhYRUM1L_hJFpuV1lE68Fn4ntuj_VUw"
                 />
               </div>
-              <div className="group overflow-hidden h-[180px] border border-[#534343]">
+              <div className="group overflow-hidden h-45 border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Embroidery"
@@ -80,7 +80,7 @@ export default function MomentsGallery() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_crnRXG7lYkGnfbugu4YsDFiTOdnrayGnDJOWS5FFBGR-bravxMKOdw_y3eLgzA8hB5STYqaON7_7FpP5akxcEjU3U6ht80wVKpKjI3vUv2Yd9MB9ENDrBtbEEQmwohw-wmruNnYZizpnhsOK_WKVHAK8bxaNf75JBaQSbECaz48w8XXCsQMm5ImzHEpgOZku4PrDwT8mOofdPWrRnvA_-3zQh-ZBzx6T-Rp-Su93ADFWh4Y_N5qduUcLlFXme5fz0Jc72Y5Z1yAgTQ"
                 />
               </div>
-              <div className="group overflow-hidden h-[140px] border border-[#534343]">
+              <div className="group overflow-hidden h-35 border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Hand position"
@@ -92,7 +92,7 @@ export default function MomentsGallery() {
 
             {/* Column 3 (3 cols) */}
             <div className="md:col-span-3 flex flex-col gap-4">
-              <div className="group overflow-hidden h-[240px] border border-[#534343]">
+              <div className="group overflow-hidden h-60 border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Rehearsal"
@@ -100,7 +100,7 @@ export default function MomentsGallery() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDeot4wCGdi8yNx0ou4kmotOn5NceB-CyoZu07ee1JNfHklNGhcg55A-DusH3MECokKbrCc3qbWYRoDSI4kpM_yZZps-gN6Eor94kUdmgGnrqy-zO1YJzdsJJduhzSds802lgQFGEsoUpd2lHoL62G_YpF36zBedle-13ydEwbQ98OJkLwOyaK6tPs-8XShsACC1KSOpYEDUQmDSNI1UcgGSVczF8jWlUPIIONqe_rDHfAHqcNb8iKTSEQSCFR6KtaCW7MzxYHX4Yp6Q"
                 />
               </div>
-              <div className="group overflow-hidden h-[180px] border border-[#534343]">
+              <div className="group overflow-hidden h-45 border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Orchestra"
@@ -130,7 +130,7 @@ export default function MomentsGallery() {
 
             {/* Column 4 (3 cols) */}
             <div className="md:col-span-3 flex flex-col gap-4">
-              <div className="group overflow-hidden h-[360px] border border-[#534343]">
+              <div className="group overflow-hidden h-90 border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Master Khin Maung Htwe"
@@ -138,7 +138,7 @@ export default function MomentsGallery() {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoNcw3VcUUw-2HJiiuX-_GQ_JAIoAWibMEGA6DlpcALRtMPQJw7WwByr9JN2otaKr_zngu1eAfNJj-HoSxqOli65nNvpDnD-xMtUNCzwq5n5SplRVSOStKvz_Y4cO89OwOyi4IH4AwTH5kn3_z5thnSgDuKyX6j5a3wwPh1s8kROF3m04vgzvRTMl1h7GdAIvIt9RK-kcIHPpHL7NjawAPMgbFS5JgdVapWRna5fGSLTQ5iZ54hfO5SxZNFKpezhDvku21jvchYY6T-w"
                 />
               </div>
-              <div className="group overflow-hidden h-[460px] border border-[#534343]">
+              <div className="group overflow-hidden h-115 border border-[#534343]">
                 <img
               onError={handleImageError}
                   alt="Group award photo"

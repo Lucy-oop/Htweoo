@@ -10,7 +10,7 @@ export default function VideoShowcase() {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
   return (
-    <section className="w-full pt-24 pb-20 px-6 sm:px-8 lg:px-12 max-w-[1280px] mx-auto relative z-10">
+    <section className="w-full pt-24 pb-20 px-6 sm:px-8 lg:px-12 max-w-320 mx-auto relative z-10">
       <div className="text-center mb-14 space-y-3">
         <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold capitalize tracking-[0.1em] text-[#FFFFFF] text-center leading-[1.1]">
           HTWE OO MYANMAR
@@ -26,7 +26,7 @@ export default function VideoShowcase() {
         {/* Card 1 */}
         <div
           onClick={() => setSelectedVideo(VIDEO_LIST[0])}
-          className="md:col-span-3 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-[380px] border border-[#d9b358]/50 bg-[#1f1a1a]"
+          className="md:col-span-3 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-95 border border-[#d9b358]/50 bg-[#1f1a1a]"
         >
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -56,7 +56,7 @@ export default function VideoShowcase() {
         {/* Card 2 */}
         <div
           onClick={() => setSelectedVideo(VIDEO_LIST[1])}
-          className="md:col-span-3 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-[380px] border border-[#d9b358]/50 bg-[#1f1a1a]"
+          className="md:col-span-3 rounded-2xl overflow-hidden relative group cursor-pointer transition-all duration-500 min-h-95 border border-[#d9b358]/50 bg-[#1f1a1a]"
         >
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

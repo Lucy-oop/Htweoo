@@ -34,7 +34,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.55))] lg:bg-[linear-gradient(to_right,rgba(0,0,0,0.94)_0%,rgba(0,0,0,0.86)_32%,rgba(0,0,0,0.72)_52%,rgba(0,0,0,0.34)_70%,rgba(0,0,0,0.06)_84%,rgba(0,0,0,0)_94%)]" />
 
-        <div className="hero-legible relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24">
+        <div className="hero-legible relative z-10 w-full max-w-320 mx-auto px-6 sm:px-8 lg:px-12 py-24">
           <p className="font-sans text-[12px] uppercase tracking-widest font-semibold text-[#d9b358] mb-4 flex items-center gap-2">
             <span>—</span> Who We Are
           </p>
@@ -113,7 +113,7 @@ export default function AboutPage() {
           </div>
 
           {/* Right: media panel */}
-          <div className="order-1 lg:order-2 relative min-h-[520px] lg:min-h-[820px] overflow-hidden group">
+          <div className="order-1 lg:order-2 relative min-h-130 lg:min-h-205 overflow-hidden group">
             <img
               alt="Master puppeteer operating traditional Myanmar marionettes"
               onError={handleImageError}
@@ -124,7 +124,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#181212] via-[#181212]/20 to-transparent lg:hidden pointer-events-none" />
 
             {/* Archival thumbnail */}
-            <div className="absolute bottom-8 left-8 z-30 flex flex-col items-center gap-3 max-w-[200px] sm:max-w-[240px] p-4 bg-[#181212]/60 backdrop-blur-md border border-[#d9b358]/40 shadow-2xl group/card">
+            <div className="absolute bottom-8 left-8 z-30 flex flex-col items-center gap-3 max-w-50 sm:max-w-60 p-4 bg-[#181212]/60 backdrop-blur-md border border-[#d9b358]/40 shadow-2xl group/card">
               <div className="relative overflow-hidden w-full">
                 <img
                   alt="Yangon home-theatre archive, 2006"

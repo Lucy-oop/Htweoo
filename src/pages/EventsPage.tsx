@@ -57,8 +57,8 @@ export default function EventsPage() {
         <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
         <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.55))] lg:bg-[linear-gradient(to_right,rgba(0,0,0,0.94)_0%,rgba(0,0,0,0.86)_32%,rgba(0,0,0,0.72)_52%,rgba(0,0,0,0.34)_70%,rgba(0,0,0,0.06)_84%,rgba(0,0,0,0)_94%)]" />
 
-        <div className="hero-legible relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24">
-          <div className="max-w-[640px]">
+        <div className="hero-legible relative z-10 w-full max-w-320 mx-auto px-6 sm:px-8 lg:px-12 py-24">
+          <div className="max-w-160">
             <p className="font-sans text-[12px] uppercase tracking-widest font-semibold text-[#d9b358] mb-4">
               Performance Schedule &amp; Reservations
             </p>
@@ -94,9 +94,9 @@ export default function EventsPage() {
       </header>
 
       {/* PRIMARY RESIDENCY */}
-      <section id="residency" className="max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-20">
+      <section id="residency" className="max-w-320 mx-auto px-6 sm:px-8 lg:px-12 py-20">
         <div className="w-full flex flex-col md:flex-row rounded-2xl overflow-hidden bg-[#130d0d]/60 border border-[#d9b358]/20 shadow-2xl">
-          <div className="w-full md:w-7/12 relative min-h-[320px]">
+          <div className="w-full md:w-7/12 relative min-h-80">
             <img
               alt="The Box Office residency stage"
               onError={handleImageError}
@@ -219,7 +219,7 @@ export default function EventsPage() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative min-h-[420px] lg:min-h-full overflow-hidden group">
+          <div className="order-1 lg:order-2 relative min-h-105 lg:min-h-full overflow-hidden group">
             <img
               alt="Yangon home-theatre archive, 2006"
               onError={handleImageError}

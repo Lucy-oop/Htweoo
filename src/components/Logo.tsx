@@ -9,7 +9,7 @@ export default function Logo() {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: EASE_BEZIER, delay: 0 }}
-      className="fixed z-20 pointer-events-none mix-blend-exclusion top-4 left-4 sm:top-8 sm:left-8 w-[124px] sm:w-[266px] lg:w-[355px]"
+      className="fixed z-20 pointer-events-none mix-blend-exclusion top-4 left-4 sm:top-8 sm:left-8 w-31 sm:w-[266px] lg:w-[355px]"
     >
       <svg
         viewBox="0 0 355 110"

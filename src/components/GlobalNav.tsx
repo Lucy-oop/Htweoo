@@ -45,7 +45,7 @@ export default function GlobalNav() {
         scrolled ? 'scrolled' : ''
       }`}
     >
-      <div className="px-6 py-4 max-w-[1440px] mx-auto relative flex justify-between lg:justify-center items-center min-h-[80px]">
+      <div className="px-6 py-4 max-w-360 mx-auto relative flex justify-between lg:justify-center items-center min-h-20">
         {/* Left Menu (Desktop) */}
         <div className="hidden lg:flex flex-1 justify-end items-center gap-10 pr-12 font-sans text-[13px] tracking-[0.15em] font-medium text-[#F5F5F7]">
           <NavLink to="/" end className={navLinkClass}>HOME</NavLink>
@@ -65,11 +65,11 @@ export default function GlobalNav() {
             </span>
           </div>
           <div className="mt-2 inline-flex items-center gap-2 max-w-full">
-            <span className="h-[1px] w-4 shrink-0 bg-[#d9b358]/60" />
+            <span className="h-px w-4 shrink-0 bg-[#d9b358]/60" />
             <span className="min-w-0 text-[#d9b358] font-sans text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-widest font-semibold">
               Traditional Puppet Show (Phnom Penh • Bangkok)
             </span>
-            <span className="h-[1px] w-4 shrink-0 bg-[#d9b358]/60" />
+            <span className="h-px w-4 shrink-0 bg-[#d9b358]/60" />
           </div>
         </Link>
 

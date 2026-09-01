@@ -51,7 +51,7 @@ function AwardCard({ award }: { award: (typeof AWARDS)[number] }) {
 export default function AwardsHighlight() {
   return (
     <section className="w-full px-6 bg-[#130d0d] overflow-hidden py-20 border-t border-[#534343]/60">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-320 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           <AwardCard award={AWARDS[0]} />
 
