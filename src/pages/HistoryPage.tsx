@@ -2,6 +2,9 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { useBooking } from '../components/SiteLayout';
 import { handleImageError, CARD_FALLBACKS } from '../lib/images';
+import LivingLegacy from '../sections/LivingLegacy';
+import VideoShowcase from '../sections/VideoShowcase';
+import MomentsGallery from '../sections/MomentsGallery';
 
 interface Era {
   era: string;
@@ -167,6 +170,11 @@ export default function HistoryPage() {
         </div>
       </header>
 
+      {/* OUR LIVING LEGACY */}
+      <div className="w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12">
+        <LivingLegacy onOpenBooking={openBooking} />
+      </div>
+
       {/* EVOLUTION OF A LEGACY */}
       <section id="evolution" className="relative w-full py-24 px-6 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-1/2 h-1/2 bg-[#4a3c1c]/25 rounded-full blur-[120px] pointer-events-none" />
@@ -237,6 +245,12 @@ export default function HistoryPage() {
           </div>
         </div>
       </section>
+
+      {/* PERFORMANCE HIGHLIGHTS */}
+      <VideoShowcase />
+
+      {/* OUR MOMENTS */}
+      <MomentsGallery />
     </div>
   );
 }

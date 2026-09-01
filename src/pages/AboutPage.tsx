@@ -2,6 +2,9 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useBooking } from '../components/SiteLayout';
 import { handleImageError, CARD_FALLBACKS } from '../lib/images';
+import AwardsHighlight from '../sections/AwardsHighlight';
+import VideoShowcase from '../sections/VideoShowcase';
+import MomentsGallery from '../sections/MomentsGallery';
 
 const HERITAGE_POINTS = [
   '01. Founding Year (2006)',
@@ -136,6 +139,15 @@ export default function AboutPage() {
           </div>
         </div>
       </main>
+
+      {/* INTERNATIONAL HONORS & MILESTONES */}
+      <AwardsHighlight />
+
+      {/* PERFORMANCE HIGHLIGHTS */}
+      <VideoShowcase />
+
+      {/* OUR MOMENTS */}
+      <MomentsGallery />
     </div>
   );
 }

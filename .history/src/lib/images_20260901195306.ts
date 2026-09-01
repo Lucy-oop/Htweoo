@@ -6,7 +6,7 @@ import type React from 'react';
  * points at a remote host should route its onError through here.
  */
 export const FALLBACK_IMAGE =
-  'https://gcfhxssieicuekikmbpf.supabase.co/storage/v1/object/public/Video(htweOo)/ChatGPT%20Image%20Aug%2028,%202026,%2002_26_05%20PM.png';
+  'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80';
 
 /**
  * onError handler for <img>. Swaps in `data-fallback` (or FALLBACK_IMAGE) once.
