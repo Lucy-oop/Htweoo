@@ -39,22 +39,25 @@ export default function EventsPage() {
   };
 
   return (
-    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans pt-[var(--global-nav-h)]">
+    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans">
       {/* HERO */}
-      <header className="relative w-full min-h-[75vh] flex items-center overflow-hidden border-b border-[#534343]/60">
+      <header className="relative w-full min-h-screen flex items-center overflow-hidden border-b border-[#534343]/60 pt-[var(--global-nav-h)]">
         <div className="absolute inset-0">
           <img
-            alt="Marionette stage under performance lighting"
+            alt="Htwe Oo Myanmar marionette performance"
             onError={handleImageError}
-            data-fallback={CARD_FALLBACKS.stage}
             className="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRBxshVA0k4bKYxINQU9fdrWLsm54CLEXTfrMd-Ku9qkGMPRuYL6JgLj9vQ8GF5H1vqDnAP3YeyQ5pZ3nxbmK-EykQLmHvsEejfP0isBKooF5jwYy0FtNEH3PZu-mlsV2ZJJd4MBLyesW7flANyXJj5-oFJQECvo-ZzzwbVZRgBJsvGwkw62WC9maMwUvLxHmLZ-kOLDlKblkja23cFWgS8s6BFQL-raIngmgVnxZ7VqmSZZ1bruV0"
+            src="/images/ticketbg.png"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#181212] via-[#181212]/75 to-[#181212]/25" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#181212] via-transparent to-[#181212]/60" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24">
+        {/* Neutral, feathered scrim anchored to the copy column. Black, not
+            the warm #181212 that tinted these brown; clears entirely across
+            the right third so the subject stays crisp and colour-accurate. */}
+        <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.55))] lg:bg-[linear-gradient(to_right,rgba(0,0,0,0.94)_0%,rgba(0,0,0,0.86)_32%,rgba(0,0,0,0.72)_52%,rgba(0,0,0,0.34)_70%,rgba(0,0,0,0.06)_84%,rgba(0,0,0,0)_94%)]" />
+
+        <div className="hero-legible relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24">
           <div className="max-w-[640px]">
             <p className="font-sans text-[12px] uppercase tracking-widest font-semibold text-[#d9b358] mb-4">
               Performance Schedule &amp; Reservations
@@ -75,13 +78,13 @@ export default function EventsPage() {
               </a>
               <a
                 href="#festival-tour"
-                className="bg-black/50 backdrop-blur-md border border-white/20 text-white px-6 py-2.5 rounded-full text-[12px] font-bold tracking-widest transition-all duration-300 hover:bg-white/10"
+                className="bg-black/65 backdrop-blur-md border border-white/30 text-white px-6 py-2.5 rounded-full text-[12px] font-bold tracking-widest transition-all duration-300 hover:bg-white/10"
               >
                 INTERNATIONAL FESTIVALS
               </a>
               <a
                 href="#private-bookings"
-                className="bg-black/50 backdrop-blur-md border border-white/20 text-white px-6 py-2.5 rounded-full text-[12px] font-bold tracking-widest transition-all duration-300 hover:bg-white/10"
+                className="bg-black/65 backdrop-blur-md border border-white/30 text-white px-6 py-2.5 rounded-full text-[12px] font-bold tracking-widest transition-all duration-300 hover:bg-white/10"
               >
                 PRIVATE BOOKINGS
               </a>

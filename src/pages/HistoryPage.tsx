@@ -128,25 +128,27 @@ export default function HistoryPage() {
   const { openBooking } = useBooking();
 
   return (
-    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans pt-[var(--global-nav-h)]">
+    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans">
       {/* HERO */}
-      <header className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden border-b border-[#534343]/60">
+      <header className="relative w-full min-h-screen flex items-center justify-center overflow-hidden border-b border-[#534343]/60 pt-[var(--global-nav-h)]">
         {/* Full-bleed imagery */}
         <div className="absolute inset-0">
           <img
-            alt="Ceremonial marionette stage"
+            alt="Htwe Oo Myanmar heritage performance"
             onError={handleImageError}
-            data-fallback={CARD_FALLBACKS.stage}
-            className="w-full h-full object-cover object-center scale-105"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnK-RqaW0e5JCXTKxKy_d1VOAZQ3_M16wPykTXxsfoj6Ly_VqrpJaDqhv4pdrscTwz8gLV8TIAjMvvVke8mY80auGpO0yNmYNWLepXjQlfYoWctO41f6F4AmNMdqLmNzER7mKmR5QxYpZvzZ2ck1VN5KwKUVDzIfgHXz3t_RLMX2hqFtDOs6ENXKbPvBa0KIwr8-ywHLCe2fIFIGt8VxMANF3uOedqTI-mIctk6NVi1kAUhyeBP4gLVIqF1SLNjASWeEqC1diSJmLjGw"
+            className="w-full h-full object-cover object-center"
+            src="/images/historybg.png"
           />
           {/* Refined dark-to-transparent scrim: readable centre, clean hand-off
               into the page background at the bottom edge. */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#181212]/90 via-[#181212]/55 to-[#181212]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(24,18,18,0.75)_100%)]" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
+        {/* Centred copy: feathered neutral ellipse behind the text only, so the
+            frame edges keep the untinted photograph. */}
+        <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_60%_at_50%_50%,rgba(0,0,0,0.8)_0%,rgba(0,0,0,0.62)_45%,rgba(0,0,0,0.2)_78%,rgba(0,0,0,0)_100%)]" />
+
+        <div className="hero-legible relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
           {/* Gold rule + eyebrow, matching the lockup used site-wide */}
           <div className="inline-flex items-center justify-center gap-3 mb-6">
             <span className="h-[1px] w-10 sm:w-14 shrink-0 bg-[#d9b358]/60" />

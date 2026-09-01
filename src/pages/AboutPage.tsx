@@ -16,21 +16,25 @@ export default function AboutPage() {
   const { openBooking } = useBooking();
 
   return (
-    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans pt-[var(--global-nav-h)]">
+    <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans">
       {/* HERO */}
-      <header className="relative w-full min-h-[75vh] flex items-center overflow-hidden border-b border-[#534343]/60">
+      <header className="relative w-full min-h-screen flex items-center overflow-hidden border-b border-[#534343]/60 pt-[var(--global-nav-h)]">
         <div className="absolute inset-0">
           <img
-            alt="Master puppeteer at work"
+            alt="Htwe Oo Myanmar marionette troupe"
             onError={handleImageError}
-            data-fallback={CARD_FALLBACKS.stage}
             className="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD03UsZHHqIsWlIRqLTbDdurgZ0a4czYZGSBKtMCX2yIAVRfc_Q1TxdTRuceBRhR6TcwT7Ar_ZkFdM8svQfHxMPIO-FMBY8rd2-tFaJXjZQSpbY2ZST-m8RoXh_akCR3qBQ3CUxtQMku4jonS7XcW-vORtUQNRVikTgBP6ocB7F0sDD0o0ITRIJZgXUO17GLWzT6zxXSClPEMbOkMjiew1arO1gGnf-zUJpOtb-vv0fJcEhuZchIG8eHQ5SwsjwuWrw0Pfo5yQ37-K6_A"
+            src="/images/aboutusbg.JPG"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#181212]/80 via-[#181212]/70 to-[#181212]" />
         </div>
 
-        <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24">
+        {/* Neutral, feathered scrim anchored to the copy column. Black, not
+            the warm #181212 that tinted these brown; clears entirely across
+            the right third so the subject stays crisp and colour-accurate. */}
+        <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.42)_45%,rgba(0,0,0,0.55))] lg:bg-[linear-gradient(to_right,rgba(0,0,0,0.94)_0%,rgba(0,0,0,0.86)_32%,rgba(0,0,0,0.72)_52%,rgba(0,0,0,0.34)_70%,rgba(0,0,0,0.06)_84%,rgba(0,0,0,0)_94%)]" />
+
+        <div className="hero-legible relative z-10 w-full max-w-[1280px] mx-auto px-6 sm:px-8 lg:px-12 py-24">
           <p className="font-sans text-[12px] uppercase tracking-widest font-semibold text-[#d9b358] mb-4 flex items-center gap-2">
             <span>—</span> Who We Are
           </p>
