@@ -1,0 +1,8 @@
+{
+  "name": "Remix prmpt — Archive Collection",
+  "description": "Full-screen, scroll-driven interactive hero experience with video cursor scrubbing and gallery grid, combined with Htwe Oo Myanmar Traditional Puppet Theatre heritage showcase, awards, media highlights, and booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
