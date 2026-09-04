@@ -5,9 +5,16 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    // GitHub Pages serves this repo from /Htweoo/, so bundled JS/CSS/asset
+    // GitHub Pages serves a project site from /<repo>/, so bundled JS/CSS/asset
     // URLs must be rewritten to that subpath. Dev and other hosts stay at root.
-    base: process.env.GITHUB_PAGES ? '/Htweoo/' : '/',
+    //
+    // Derived from GITHUB_REPOSITORY ("owner/repo", set by Actions) rather than
+    // hard-coded: a hard-coded name silently breaks if the repo is renamed or
+    // the site is deployed from a fork, and the failure mode is a blank page —
+    // index.html loads but every asset 404s under the wrong prefix.
+    base: process.env.GITHUB_PAGES
+      ? `/${(process.env.GITHUB_REPOSITORY ?? '').split('/')[1] || 'Htweoo'}/`
+      : '/',
 
     plugins: [react(), tailwindcss()],
     resolve: {

@@ -34,14 +34,15 @@ jobs:
         run: npx tsc --noEmit
 
       - name: Build
-        # GITHUB_PAGES switches the Vite base to /Htweoo/ so bundled asset URLs
-        # resolve under the project subpath instead of the domain root.
+        # GITHUB_PAGES switches the Vite base to /<repo>/ so bundled asset URLs
+        # resolve under the project subpath instead of the domain root. The repo
+        # name comes from GITHUB_REPOSITORY, which Actions sets automatically.
         env:
           GITHUB_PAGES: 'true'
         run: npm run build
 
       - name: Add SPA fallback and disable Jekyll
-        # Pages has no rewrite rules, so a hard refresh on /Htweoo/about would
+        # Pages has no rewrite rules, so a hard refresh on /<repo>/about would
         # 404. Serving index.html as 404.html hands those URLs to the router.
         # .nojekyll stops Pages skipping underscore-prefixed files.
         run: |
