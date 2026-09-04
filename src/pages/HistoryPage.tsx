@@ -130,7 +130,12 @@ export default function HistoryPage() {
   return (
     <div className="relative z-30 w-full bg-[#181212] text-[#ece0e0] font-sans">
       {/* HERO */}
-      <header className="relative w-full min-h-screen flex items-center justify-center overflow-hidden border-b border-[#534343]/60 pt-[var(--global-nav-h)]">
+      {/* The copy is centred in the box below the nav, which drops it onto the
+          marionettes' faces in the backdrop. pb lifts it: min-height is
+          border-box, so bottom padding shortens the centring area and raises
+          the block by half the value. vh rather than px so it tracks the
+          viewport instead of drifting on short screens. */}
+      <header className="relative w-full min-h-screen flex items-center justify-center overflow-hidden border-b border-[#534343]/60 pt-[var(--global-nav-h)] pb-[8vh] md:pb-[16vh]">
         {/* Full-bleed imagery */}
         <div className="absolute inset-0">
           <img
