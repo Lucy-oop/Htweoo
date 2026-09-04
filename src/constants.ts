@@ -84,6 +84,6 @@ export const CURTAIN_ASSETS = {
  * overwriting the file at the same path; nothing else needs editing.
  */
 export const CURTAIN_VIDEOS = {
-  lookLeft: asset('videos/theater/turn_left.mp4'),
-  lookRight: asset('videos/theater/turn_right.mp4'),
+  lookLeft: asset('videos/theater/left.mp4'),
+  lookRight: asset('videos/theater/right.mp4'),
 };
